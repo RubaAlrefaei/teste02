@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tsavo WoningScan – Resultaat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Roboto:wght@400;700&family=Zilla+Slab:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F4F1ED;--white:#fff;--ink:#21313D;--muted:#667784;--teal:#119CA5;--teal2:#0B8088;--soft:#E7F6F5;--navy:#2B4157;--coral:#F57D5F;--border:#DCE5E8;--bar:#EDF1F2}
+*{box-sizing:border-box}html{background:#A7B1B8}body{margin:0;background:#A7B1B8;color:var(--ink);font-family:Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+button,input{font:inherit}.site{width:min(390px,100%);margin:0 auto;background:var(--bg);min-height:100vh;overflow:hidden}.content{padding:22px 28px 36px}
+.advice{background:var(--teal);color:#fff;border-radius:26px;padding:22px 14px;text-align:center}
+.advice h1,.advice h2{margin:0;font-family:"Zilla Slab",Georgia,serif;font-weight:700}.advice h1,.advice h2{font-size:22px;line-height:26px}.advice h2{margin-top:32px}
+.advice-copy{width:min(250px,100%);margin:7px auto 0;font:400 13px/15px Roboto,Arial,sans-serif}.expect-copy{width:min(290px,100%);margin:7px auto 0;font:400 14px/16px Roboto,Arial,sans-serif}
+.primary{width:calc(100% - 32px);height:48px;margin:32px auto 0;border:0;border-radius:10px;background:var(--coral);color:#fff;font:700 15px/18px Roboto,Arial,sans-serif;box-shadow:0 2px 2px rgba(0,0,0,.25);cursor:pointer}
+.video{margin-top:16px;height:174px;background:var(--navy);border-radius:14px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.video-inner{display:flex;flex-direction:column;align-items:center;gap:13px;transform:translateY(3px)}.play-button{width:56px;height:56px;border:0;border-radius:50%;background:var(--coral);display:grid;place-items:center;padding:0}.play-icon{width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:18px solid #fff;margin-left:4px}.video-label{font:700 14px/16px Roboto,Arial,sans-serif}
+.report-shell{margin-top:18px;height:610px;background:#fff;border:1px solid var(--border);border-radius:14px;position:relative;overflow:hidden;box-shadow:0 4px 14px rgba(33,49,61,.06)}
+.report-scroll{height:100%;overflow-y:auto;overscroll-behavior:contain;padding:18px 26px 22px 14px;scrollbar-width:none}.report-scroll::-webkit-scrollbar{display:none}
+.custom-track{position:absolute;top:15px;right:8px;bottom:15px;width:8px;border-radius:150px;background:rgba(217,217,217,.57);pointer-events:none}.custom-thumb{position:absolute;left:0;top:0;width:8px;min-height:70px;border-radius:150px;background:var(--teal);will-change:transform,height}
+.result-card{background:var(--teal);color:#fff;border-radius:12px;padding:15px 14px 16px;margin-bottom:14px}.result-kicker{font-size:10px;line-height:13px;font-weight:700}.result-value{font-size:29px;line-height:36px;font-weight:700;margin:4px 0 6px}.result-note{font-size:11px;line-height:14px}
+.info-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:13px 12px;margin-bottom:14px}.info-title{margin:0 0 11px;font-size:16px;line-height:19px;font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{background:var(--soft);color:var(--teal2);border-radius:999px;padding:6px 10px;font-size:10.5px;line-height:13px;font-weight:700}
+.house-row,.money-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;padding:4px 0;font-size:11.2px;line-height:14px}.house-row .label{color:var(--muted);font-weight:400}.house-row .value{font-weight:700;text-align:right}
+.winst-copy{color:var(--muted);font-size:11.2px;line-height:14px;margin:0 0 13px;width:82%}.progress{height:8px;background:var(--bar);border-radius:99px;overflow:hidden;margin-bottom:9px}.progress span{display:block;width:67%;height:100%;background:var(--teal);border-radius:inherit}
+.money-row{font-size:11.3px}.money-row .value{color:var(--teal2);font-weight:700}.recommendations-title{margin:14px 0 10px;font-size:17px;line-height:21px;font-weight:700}
+.rec-card{border:1px solid var(--border);border-radius:14px;background:#fff;margin-bottom:10px;overflow:hidden}.rec-trigger{width:100%;min-height:76px;border:0;background:#fff;padding:12px 10px;display:grid;grid-template-columns:34px minmax(0,1fr) 30px;gap:10px;align-items:center;text-align:left;cursor:pointer}
+.num,.chevron{width:30px;height:30px;border-radius:50%;background:var(--soft);color:var(--teal2);display:flex;align-items:center;justify-content:center}.num{font-size:10.5px;line-height:13px;font-weight:700}.rec-main{min-width:0}.rec-title{display:block;font-size:12.3px;line-height:15px;font-weight:700;margin-bottom:4px}.rec-meta{display:block;color:var(--teal2);font-size:10.5px;line-height:13px;font-weight:700}
+.chevron{position:relative;font-size:0;justify-self:end}.chevron:before{content:"";width:7px;height:7px;border-right:2px solid var(--teal2);border-bottom:2px solid var(--teal2);transform:rotate(45deg) translate(-1px,-1px);transition:transform .2s ease}.rec-card.open .chevron:before{transform:rotate(225deg) translate(-1px,-1px)}
+.rec-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .26s ease}.rec-card.open .rec-panel{grid-template-rows:1fr}.rec-panel-inner{overflow:hidden}.rec-copy{padding:0 42px 16px 54px;margin:0;color:#000;font-size:11.3px;line-height:17px;font-weight:300}
+.good-note{margin-top:13px;border:1px solid var(--border);border-radius:12px;padding:11px 12px;color:var(--muted);font-size:10.8px;line-height:15px}.good-note strong{display:block;color:var(--ink);font-size:12px;margin-bottom:3px}
+.email-card{margin-top:42px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px 15px 28px}.email-card h2{margin:0;font-size:22px;line-height:27px;font-weight:700}.email-copy{margin:13px 0 25px;color:var(--muted);font-size:13px;line-height:16px;width:84%}.email-input{width:100%;height:50px;border:1px solid var(--border);border-radius:9px;padding:0 14px;font-size:14px;outline:none}.email-input::placeholder{color:#94A1AB}.email-input:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(17,156,165,.12)}
+.secondary{width:100%;height:52px;margin-top:10px;border:0;border-radius:9px;background:var(--teal);color:#fff;font-size:15px;line-height:18px;font-weight:700;box-shadow:0 2px 2px rgba(0,0,0,.25);cursor:pointer}
+.teal-line{height:8px;background:var(--teal);margin-top:40px}footer{background:var(--navy);color:#fff;text-align:center;padding:17px 18px 24px;font-family:Roboto,Arial,sans-serif}footer strong{display:block;font-size:16px;line-height:19px;margin-bottom:28px}footer .links,footer .address{font-size:11px;line-height:13px}footer .address{margin-top:27px}
+.modal{position:fixed;inset:0;background:rgba(15,29,40,.72);display:none;align-items:center;justify-content:center;padding:20px;z-index:100}.modal.open{display:flex}.modal-card{width:min(350px,100%);background:#fff;border-radius:16px;padding:14px}.modal-top{display:flex;justify-content:space-between;align-items:center}.modal-title{font:700 20px/24px "Zilla Slab",Georgia,serif}.close{width:36px;height:36px;border:0;border-radius:50%;background:var(--soft);color:var(--teal2);font-size:22px}.video-demo{aspect-ratio:16/9;border-radius:12px;background:var(--navy);display:grid;place-items:center;color:#fff;margin-top:12px}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(20px);width:min(340px,calc(100% - 32px));background:var(--navy);color:#fff;border-radius:10px;padding:12px 14px;font-size:13px;opacity:0;pointer-events:none;transition:.22s;z-index:120;text-align:center}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+button:focus-visible,.video:focus-visible{outline:3px solid rgba(245,125,95,.35);outline-offset:3px}
+/* Mobile/tablet: preserve the current working mobile experience */
+.advice-left{display:contents}
+
+@media(max-width:899px){
+  html,body{width:100%;min-height:100%;background:var(--bg);overflow-x:hidden}
+  body{padding:0}
+  .site{width:100vw;max-width:none;margin:0;min-height:100svh;box-shadow:none}
+}
+
+/* Laptop / desktop */
+@media(min-width:900px){
+  html,body{
+    width:100%;
+    min-height:100%;
+    background:var(--bg);
+    overflow-x:hidden;
+  }
+
+  body{padding:0}
+
+  .site{
+    width:100%;
+    max-width:none;
+    margin:0;
+    min-height:100vh;
+    background:var(--bg);
+    box-shadow:none;
+  }
+
+  /* Keep generous beige margins on large laptop screens */
+  .content{
+    width:min(1040px,calc(100% - 96px));
+    margin:0 auto;
+    padding:42px 0 58px;
+  }
+
+  /* 1. Horizontal advice section */
+  .advice{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(360px,.92fr);
+    gap:42px;
+    align-items:center;
+    padding:36px 40px;
+    text-align:left;
+  }
+
+  .advice-left{
+    display:block;
+    min-width:0;
+    padding:2px 0;
+  }
+
+  .advice h1,
+  .advice h2{
+    text-align:left;
+  }
+
+  .advice-copy{
+    width:min(450px,100%);
+    margin:8px 0 0;
+  }
+
+  /* Normal-sized CTA, not stretched */
+  .primary{
+    width:auto;
+    min-width:220px;
+    max-width:250px;
+    padding:0 24px;
+    margin:24px 0 0;
+  }
+
+  .advice h2{margin-top:28px}
+
+  .expect-copy{
+    width:min(500px,100%);
+    margin:7px 0 0;
+  }
+
+  .video{
+    width:100%;
+    height:260px;
+    margin:0;
+    align-self:center;
+  }
+
+  /* 2. Desktop report: no inner scrolling, whole page scrolls normally */
+  .report-shell{
+    height:auto;
+    margin-top:28px;
+    border-radius:16px;
+    overflow:visible;
+  }
+
+  .report-scroll{
+    height:auto;
+    overflow:visible;
+    overscroll-behavior:auto;
+    display:grid;
+    grid-template-columns:repeat(12,minmax(0,1fr));
+    gap:18px;
+    align-content:start;
+    padding:26px 28px 30px;
+  }
+
+  /* Hide the custom report scrollbar on laptop/desktop */
+  .custom-track{display:none}
+
+  .report-scroll > *{min-width:0}
+
+  .value-card{
+    grid-column:span 4;
+    margin-bottom:0;
+  }
+
+  .prefs-card{
+    grid-column:span 8;
+    margin-bottom:0;
+  }
+
+  .housing-card{
+    grid-column:span 6;
+    margin-bottom:0;
+  }
+
+  .winst-card{
+    grid-column:span 6;
+    margin-bottom:0;
+  }
+
+  .recommendations-title,
+  .rec-card,
+  .good-note{
+    grid-column:1 / -1;
+  }
+
+  .recommendations-title{
+    margin:8px 0 0;
+  }
+
+  /* Stable, aligned and clearly clickable recommendation rows */
+  .rec-card{
+    margin-bottom:0;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .rec-trigger{
+    position:relative;
+    z-index:2;
+    pointer-events:auto;
+    min-height:84px;
+    padding:16px 20px;
+    grid-template-columns:38px minmax(0,1fr) 34px;
+    gap:16px;
+    align-items:center;
+  }
+
+  .rec-main{
+    padding:2px 6px 2px 2px;
+  }
+
+  .rec-title{
+    margin-bottom:5px;
+  }
+
+  /* Comfortable reading width and whitespace in opened cards */
+  .rec-copy{
+    max-width:860px;
+    padding:4px 72px 22px 76px;
+    line-height:18px;
+  }
+
+  .good-note{
+    margin-top:2px;
+    padding:15px 18px;
+  }
+
+  /* 3. Horizontal email section */
+  .email-card{
+    display:grid;
+    grid-template-columns:minmax(0,.95fr) minmax(360px,1.05fr);
+    grid-template-rows:auto auto;
+    column-gap:46px;
+    row-gap:12px;
+    align-items:center;
+    margin-top:30px;
+    padding:30px 34px;
+  }
+
+  .email-card h2{
+    grid-column:1;
+    grid-row:1;
+    align-self:end;
+    max-width:420px;
+  }
+
+  .email-copy{
+    grid-column:1;
+    grid-row:2;
+    align-self:start;
+    width:min(410px,100%);
+    margin:0;
+  }
+
+  .email-input{
+    grid-column:2;
+    grid-row:1;
+    align-self:end;
+    max-width:100%;
+  }
+
+  /* Normal-sized email CTA */
+  .secondary{
+    grid-column:2;
+    grid-row:2;
+    justify-self:start;
+    width:auto;
+    min-width:260px;
+    max-width:320px;
+    padding:0 22px;
+    align-self:start;
+    margin-top:0;
+  }
+
+  /* 4. Full-width footer, beige remains visible above it */
+  .teal-line{
+    width:100%;
+    margin-top:26px;
+  }
+
+  footer{
+    width:100%;
+    padding-top:22px;
+    padding-bottom:28px;
+  }
+}
+
+/* Smooth intermediate tablet behavior */
+@media(min-width:700px) and (max-width:899px){
+  .content{
+    width:min(720px,100%);
+    margin:0 auto;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;scroll-behavior:auto!important}
+}
+
+/* ===== Nieuwe structuur: rapport eerst, advies/video erin, e-mail als laatste ===== */
+.summary-head{
+  grid-column:1 / -1;
+  margin:0 0 4px;
+}
+.summary-head h1{
+  margin:0 0 6px;
+  color:var(--ink);
+  font-size:24px;
+  line-height:30px;
+  font-weight:500;
+  letter-spacing:.2px;
+}
+.summary-head p{
+  margin:0;
+  color:var(--muted);
+  font-size:12.5px;
+  line-height:18px;
+}
+.report-shell{
+  height:auto !important;
+  overflow:visible !important;
+}
+.report-scroll{
+  height:auto !important;
+  overflow:visible !important;
+  overscroll-behavior:auto !important;
+  scrollbar-width:auto !important;
+}
+.report-scroll::-webkit-scrollbar{display:none !important}
+.custom-track{display:none !important}
+
+.report-advice{
+  grid-column:1 / -1;
+  background:var(--teal);
+  color:#fff;
+  border-radius:16px;
+  margin-top:4px;
+}
+.report-advice h2,
+.report-advice h3{
+  font-family:"Zilla Slab",Georgia,serif;
+  font-weight:500;
+  margin:0;
+}
+.report-advice p{
+  font-family:Roboto,Arial,sans-serif;
+  font-weight:400;
+  margin:8px 0 0;
+}
+.report-advice .video{
+  background:var(--navy);
+}
+
+/* Deze variant is bewust de mobiele test-a3-versie */
+html,body{
+  width:100%;
+  min-height:100%;
+  background:var(--bg);
+  overflow-x:hidden;
+}
+.site{
+  width:min(390px,100%);
+  margin:0 auto;
+  min-height:100vh;
+  background:var(--bg);
+}
+.content{
+  padding:22px 16px 36px;
+}
+.report-shell{
+  margin-top:0 !important;
+  border-radius:16px;
+}
+.report-scroll{
+  display:block !important;
+  padding:20px 10px 18px !important;
+}
+.summary-head{
+  padding:0 4px 14px;
+}
+.summary-head h1{
+  font-size:21px;
+  line-height:27px;
+}
+.summary-head p{
+  font-size:11.5px;
+  line-height:16px;
+}
+.report-advice{
+  margin-top:16px;
+  padding:22px 14px 14px;
+  text-align:center;
+}
+.report-advice h2{
+  font-size:21px;
+  line-height:26px;
+}
+.report-advice h3{
+  margin-top:30px;
+  font-size:20px;
+  line-height:25px;
+}
+.report-advice p{
+  width:min(290px,100%);
+  margin:7px auto 0;
+  font-size:12.5px;
+  line-height:16px;
+}
+.report-advice .primary{
+  width:calc(100% - 20px);
+  height:48px;
+  margin:24px auto 0;
+}
+.report-advice .video{
+  height:174px;
+  margin-top:14px;
+}
+.email-card{
+  margin-top:22px !important;
+}
+.teal-line{
+  margin-top:28px !important;
+}
+
+/* Ook wanneer deze mobiele prototype-link op een laptop wordt geopend,
+   blijft hij visueel 390px breed. */
+@media(min-width:900px){
+  html,body{background:#A7B1B8 !important;}
+  .site{
+    width:390px !important;
+    max-width:390px !important;
+    margin:0 auto !important;
+    background:var(--bg) !important;
+  }
+  .content{
+    width:auto !important;
+    margin:0 !important;
+    padding:22px 16px 36px !important;
+  }
+  .report-shell{
+    margin-top:0 !important;
+    height:auto !important;
+    overflow:visible !important;
+  }
+  .report-scroll{
+    display:block !important;
+    height:auto !important;
+    overflow:visible !important;
+    padding:20px 10px 18px !important;
+  }
+  .email-card{
+    display:block !important;
+    position:static !important;
+    margin-top:22px !important;
+    padding:20px 15px 28px !important;
+  }
+  .email-card h2{
+    font-size:22px !important;
+    line-height:27px !important;
+  }
+  .email-copy{
+    width:84% !important;
+    margin:13px 0 25px !important;
+  }
+  .email-input,
+  .secondary{
+    width:100% !important;
+    max-width:none !important;
+  }
+  .secondary{margin-top:10px !important;}
+}
+
+
+/* Volgorde update: rapport → e-mail → advies/video → footer */
+.email-card + .report-advice{
+  margin-top:30px;
+}
+@media(max-width:899px){
+  .email-card + .report-advice{
+    margin-top:22px;
+  }
+}
+
+</style>
+</head>
+<body>
+<main class="site">
+<div class="content">
+<section class="report-shell" aria-label="Samenvatting van het rapport">
+<div class="report-scroll" id="reportScroll">
+<div class="summary-head">
+  <h1>Jouw WoningScan in het kort</h1>
+  <p>De belangrijkste uitkomsten en aanbevelingen voor jouw woning.</p>
+</div>
+<div class="result-card value-card"><div class="result-kicker">MOGELIJKE WAARDESTIJGING</div><div class="result-value">€ 15.000</div><div class="result-note">Indicatie op basis van je ingevulde WoningScan en beschikbare woninggegevens.</div></div>
+
+<div class="info-card prefs-card"><h3 class="info-title">Je voorkeur en beweegredenen</h3><div class="chips"><span class="chip">Lagere hypotheekrente</span><span class="chip">Woningwaarde</span><span class="chip">Onderhoud</span></div></div>
+
+<div class="info-card housing-card">
+<h3 class="info-title">Jouw woninginformatie</h3>
+<div class="house-row"><span class="label">Woningtype</span><span class="value">Appartement</span></div>
+<div class="house-row"><span class="label">Keuken</span><span class="value">Goede staat</span></div>
+<div class="house-row"><span class="label">Badkamer</span><span class="value">Redelijke staat</span></div>
+<div class="house-row"><span class="label">Onderhoud woning</span><span class="value">Redelijk</span></div>
+<div class="house-row"><span class="label">Tuin / buitenruimte</span><span class="value">Redelijk</span></div>
+<div class="house-row"><span class="label">Uitgangspunt energielabel</span><span class="value">A+++</span></div>
+</div>
+
+<div class="info-card winst-card">
+<h3 class="info-title">Waar zit de winst?</h3>
+<p class="winst-copy">De mogelijke waardestijging is verdeeld over verschillende verbeteringen.</p>
+<div class="progress"><span></span></div>
+<div class="money-row"><span>Tuin stevig opschonen</span><span class="value">€ 5.000</span></div>
+<div class="money-row"><span>Diverse gebreken herstellen</span><span class="value">€ 5.000</span></div>
+<div class="money-row"><span>Overige / aanvullende stappen</span><span class="value">€ 5.000</span></div>
+</div>
+
+<h3 class="recommendations-title">Dit zijn onze aanbevelingen</h3>
+
+<article class="rec-card" data-accordion>
+<button class="rec-trigger" type="button" aria-expanded="false"><span class="num">01</span><span class="rec-main"><span class="rec-title">Volgende stap met verduurzamen</span><span class="rec-meta">Waarde-effect afhankelijk van maatregel</span></span><span class="chevron"></span></button>
+<div class="rec-panel"><div class="rec-panel-inner"><p class="rec-copy">Als je woning al goed is verduurzaamd, kan een volgende stap nog interessant zijn. De mogelijke meerwaarde hangt af van wat al is uitgevoerd, welke verbetering nog bij jouw woning past en welk doel je ermee wilt bereiken.</p></div></div>
+</article>
+
+<article class="rec-card" data-accordion>
+<button class="rec-trigger" type="button" aria-expanded="false"><span class="num">02</span><span class="rec-main"><span class="rec-title">Tuin stevig opschonen</span><span class="rec-meta">Verwachte bijdrage € 5.000</span></span><span class="chevron"></span></button>
+<div class="rec-panel"><div class="rec-panel-inner"><p class="rec-copy">Een verzorgde tuin of buitenruimte versterkt de eerste indruk van je woning. Door achterstallig groen, rommel en kleine zichtbare gebreken aan te pakken, krijgt de buitenruimte een nette, verzorgde en aantrekkelijkere uitstraling.</p></div></div>
+</article>
+
+<article class="rec-card" data-accordion>
+<button class="rec-trigger" type="button" aria-expanded="false"><span class="num">03</span><span class="rec-main"><span class="rec-title">Diverse gebreken herstellen</span><span class="rec-meta">Verwachte bijdrage € 5.000</span></span><span class="chevron"></span></button>
+<div class="rec-panel"><div class="rec-panel-inner"><p class="rec-copy">Goed onderhoud voorkomt dat kleine gebreken groter worden en geeft de woning een verzorgde, instapklare uitstraling. Door zichtbare beschadigingen en kleine reparaties netjes af te werken, oogt de woning beter onderhouden en aantrekkelijker voor toekomstige kopers.</p></div></div>
+</article>
+
+<div class="good-note"><strong>Goed om te weten</strong>De bedragen zijn indicaties. De uiteindelijke waardestijging hangt onder andere af van de woning, uitvoering, markt en gekozen maatregelen.</div>
+
+</div>
+</section>
+
+<section class="email-card">
+<h2>Wil je het uitgebreide rapport ontvangen?</h2>
+<p class="email-copy">Vul je e-mailadres in en ontvang het volledige rapport met alle details.</p>
+<input class="email-input" id="email" type="email" autocomplete="email" placeholder="jouw@email.nl" aria-label="E-mailadres">
+<button class="secondary" id="emailButton" type="button">Stuur mijn uitgebreide rapport</button>
+</section>
+
+<section class="report-advice" aria-label="Persoonlijk advies en uitlegvideo">
+  <div class="report-advice-copy">
+    <h2>Wil je persoonlijk advies?</h2>
+    <p>Bespreek je rapport gratis met een adviseur en ontdek welke stappen het best passen bij jouw woning.</p>
+    <button class="primary" id="adviceButton" type="button">Plan adviesgesprek</button>
+  </div>
+  <div class="report-advice-media">
+    <h3>Wat kun je verwachten?</h3>
+    <p>Tijdens het gesprek nemen we je rapport samen door, bespreken we je wensen en bekijken we welke maatregelen voor jouw woning logisch zijn.</p>
+    <div class="video" id="videoCard" role="button" tabindex="0" aria-label="Bekijk hoe het adviesgesprek werkt">
+      <div class="video-inner">
+        <button class="play-button" type="button" aria-label="Video afspelen"><span class="play-icon"></span></button>
+        <div class="video-label">Zo werkt het adviesgesprek</div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="teal-line"></div>
+<footer><strong>Tsavo B.V.</strong><div class="links">Algemene voorwaarden • Privacy • Contact</div><div class="address">Jaarbeursboulevard 232, Utrecht</div></footer>
+</main>
+
+<div class="modal" id="videoModal" aria-hidden="true">
+<div class="modal-card" role="dialog" aria-modal="true"><div class="modal-top"><div class="modal-title">Zo werkt het adviesgesprek</div><button class="close" id="closeVideo" type="button" aria-label="Sluiten">×</button></div><div class="video-demo">Video-placeholder</div></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+
+document.querySelectorAll('[data-accordion]').forEach(card=>{
+  const b=card.querySelector('.rec-trigger');
+  b.addEventListener('click',()=>{
+    const o=!card.classList.contains('open');
+    card.classList.toggle('open',o);
+    b.setAttribute('aria-expanded',String(o));
+  });
+});
+
+const modal=document.getElementById('videoModal');
+const video=document.getElementById('videoCard');
+const closeVideo=document.getElementById('closeVideo');
+
+function openVideo(){
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden','false');
+  closeVideo.focus();
+}
+function hideVideo(){
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
+  video.focus();
+}
+
+video.addEventListener('click',openVideo);
+video.addEventListener('keydown',e=>{
+  if(e.key==='Enter'||e.key===' '){
+    e.preventDefault();
+    openVideo();
+  }
+});
+closeVideo.addEventListener('click',hideVideo);
+modal.addEventListener('click',e=>{if(e.target===modal)hideVideo();});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&modal.classList.contains('open')) hideVideo();
+});
+
+const toast=document.getElementById('toast');
+let timer;
+function showToast(m){
+  clearTimeout(timer);
+  toast.textContent=m;
+  toast.classList.add('show');
+  timer=setTimeout(()=>toast.classList.remove('show'),2600);
+}
+
+document.getElementById('adviceButton').addEventListener('click',()=>showToast('Prototype: hier start het plannen van een adviesgesprek.'));
+document.getElementById('emailButton').addEventListener('click',()=>{
+  const e=document.getElementById('email');
+  const v=e.value.trim();
+  if(!e.checkValidity()||!v){
+    e.focus();
+    showToast('Vul eerst een geldig e-mailadres in.');
+    return;
+  }
+  showToast('Prototype: het uitgebreide rapport wordt naar '+v+' gestuurd.');
+});
+
+</script>
+</body>
+</html>
